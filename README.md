@@ -24,8 +24,9 @@
 ```bash
 > npm run build
 ```
+
 ## 特性
-* 使用Electron开发，开发、构建简便快捷，UI简洁、友好；
+* 使用[Electron](https://github.com/electron/electron)开发，开发、构建简便快捷，UI简洁、友好；
 
 * 支持从XLSX表格中导入用户，支持通过UserID与TraceID手动导入用户；
 
@@ -37,12 +38,14 @@
 
 ## 截图
 <div align="center">
-	<img src="./Pictures/home.png" width="300px"><img src="./Pictures/userlist.png" width="300px"><img src="./Pictures/dataAna.png" width="300px">
-	<img src="./Pictures/setting.png" width="300px">
+	<img src="./Pictures/home.png">
+    <img src="./Pictures/userlist.png">
+    <img src="./Pictures/dataAna.png">
+    <img src="./Pictures/setting.png">
 </div>
 
 ## 支持
-* 欢迎前往Issue提出您遇到的任何问题；
+* 欢迎前往[Issue](https://github.com/SaKongA/Upper/issues)提出您遇到的任何问题；
 * 如果您对我的项目感兴趣，需要更多帮助与支持，再或需要完善其他功能，欢迎联系我！
 
 ## 声明
