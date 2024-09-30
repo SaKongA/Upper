@@ -1,0 +1,397 @@
+/* pages/userList/userList.css */
+
+/* 页面整体布局 */
+.user-list-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* 内容容器 */
+.content-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  overflow: auto;
+}
+
+/* 页面标题样式 */
+.user-list-page h1 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: #2c3e50;
+  text-align: center;
+}
+
+/* 用户列表容器 */
+.user-list-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+/* 表头样式 */
+.user-list-header {
+  display: flex;
+  background-color: #ecf0f1;
+  padding: 10px;
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+}
+
+/* 调整表头和列表项的对齐方式 */
+.user-list-header .user-list-column,
+.user-list-item .user-list-column {
+  flex: 1;
+  text-align: center;
+}
+
+/* 调整列的宽度比例 */
+.user-list-column.checkbox-column {
+  flex: 0.5;
+}
+
+.user-list-column.id-column {
+  flex: 0.5;
+}
+
+.user-list-column.name-column {
+  flex: 2;
+}
+
+.user-list-column.date-column {
+  flex: 2;
+}
+
+.user-list-column.action-column {
+  flex: 1;
+}
+
+/* 列表内容 */
+.user-list-content {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+/* 自定义滚动条样式 */
+.user-list-content::-webkit-scrollbar {
+  width: 8px;
+  background-color: #f0f0f0;
+}
+
+.user-list-content::-webkit-scrollbar-thumb {
+  background-color: #bdc3c7;
+  border-radius: 4px;
+}
+
+.user-list-content::-webkit-scrollbar-thumb:hover {
+  background-color: #95a5a6;
+}
+
+/* 用户列表项 */
+.user-list-item {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.2s;
+}
+
+.user-list-item:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.user-list-item:hover {
+  background-color: #f0f0f0;
+}
+
+/* 自定义复选框样式 */
+.user-list-column input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #bdc3c7;
+  border-radius: 3px;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  display: inline-block;
+  vertical-align: middle;
+  background-color: white;
+}
+
+.user-list-column input[type="checkbox"]:checked {
+  background-color: #2ecc71;
+  border-color: #2ecc71;
+}
+
+.user-list-column input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: translate(-50%, -60%) rotate(45deg);
+}
+
+/* 详情按钮样式 */
+.detail-button {
+  padding: 5px 12px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.detail-button:hover {
+  background-color: #2980b9;
+}
+
+/* 底部工具栏 */
+.toolbar {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 15px 0;
+  flex-shrink: 0;
+}
+
+/* 工具栏按钮样式 */
+.toolbar button {
+  padding: 10px 20px;
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.toolbar button:hover {
+  background-color: #27ae60;
+}
+
+/* 加载动画的样式 */
+.loading {
+  text-align: center;
+  padding: 20px;
+  font-size: 18px;
+  color: #999;
+}
+
+/* 模态窗口样式 */
+.modal {
+  display: none;
+  opacity: 0;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+  transition: opacity 0.3s ease;
+}
+
+.modal.show {
+  display: block;
+}
+
+.modal.visible {
+  opacity: 1;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px 30px;
+  border: 1px solid #888;
+  width: 40%;
+  border-radius: 5px;
+  position: relative;
+  transform: translateY(-30px);
+  transition: transform 0.3s ease;
+}
+
+.modal.visible .modal-content {
+  transform: translateY(0);
+}
+
+.close-button {
+  color: #aaa;
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: black;
+  text-decoration: none;
+}
+
+/* 模态窗口按钮样式 */
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.modal-actions button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* 添加方式选择窗口按钮 */
+#manual-add-button,
+#auto-extract-button {
+  background-color: #3498db;
+  color: white;
+}
+
+#manual-add-button:hover,
+#auto-extract-button:hover {
+  background-color: #2980b9;
+}
+
+/* 自动提取窗口的按钮样式 */
+#select-file-button,
+#extract-button {
+  background-color: #2ecc71;
+  color: white;
+}
+
+#select-file-button:hover,
+#extract-button:hover {
+  background-color: #27ae60;
+}
+
+/* 扫描结果窗口按钮 */
+#save-extract-button {
+  background-color: #2ecc71;
+  color: white;
+}
+
+#save-extract-button:hover {
+  background-color: #27ae60;
+}
+
+#cancel-extract-button {
+  background-color: #bdc3c7;
+  color: white;
+}
+
+#cancel-extract-button:hover {
+  background-color: #95a5a6;
+}
+
+/* 添加用户窗口的表单样式 */
+.modal-content form {
+  width: 100%;
+}
+
+.modal-content label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #bdc3c7;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.modal-content input:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+.modal-content button[type="submit"] {
+  width: 100%;
+  padding: 12px 0;
+  background-color: #3498db;
+  color: #fff;
+  font-size: 18px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal-content button[type="submit"]:hover {
+  background-color: #2980b9;
+}
+
+/* 删除确认窗口的按钮样式 */
+#confirm-delete-button {
+  background-color: #e74c3c;
+  color: white;
+}
+
+#confirm-delete-button:hover {
+  background-color: #c0392b;
+}
+
+#cancel-delete-button {
+  background-color: #bdc3c7;
+  color: white;
+}
+
+#cancel-delete-button:hover {
+  background-color: #95a5a6;
+}
+
+/* 未选择提示窗口的按钮样式 */
+#no-selection-ok-button {
+  background-color: #3498db;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#no-selection-ok-button:hover {
+  background-color: #2980b9;
+}
+
+/* 详情窗口的样式 */
+.modal-content h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.modal-content p {
+  font-size: 16px;
+  color: #34495e;
+  margin-bottom: 10px;
+}

@@ -1,0 +1,140 @@
+<!-- pages/userList/userList.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>用户列表</title>
+  <link rel="stylesheet" href="userList.css">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval';">
+</head>
+<body>
+  <div class="user-list-page">
+    <!-- 页面内容容器 -->
+    <div class="content-wrapper">
+      <!-- 页面标题 -->
+      <h1>用户列表</h1>
+
+      <!-- 用户列表容器 -->
+      <div class="user-list-container">
+        <!-- 表头 -->
+        <div class="user-list-header">
+          <div class="user-list-column checkbox-column"><input type="checkbox" id="select-all"></div>
+          <div class="user-list-column id-column">ID</div>
+          <div class="user-list-column name-column">用户名</div>
+          <div class="user-list-column date-column">添加日期</div>
+          <div class="user-list-column action-column">操作</div>
+        </div>
+
+        <!-- 列表内容 -->
+        <div class="user-list-content" id="user-list-content">
+          <!-- 用户列表将由 JavaScript 动态生成 -->
+        </div>
+      </div>
+    </div>
+
+    <!-- 底部工具栏 -->
+    <div class="toolbar">
+      <button id="refresh-button">刷新</button>
+      <button id="add-button">添加用户</button>
+      <button id="delete-button">删除用户</button>
+    </div>
+  </div>
+
+  <!-- 详情窗口 -->
+  <div class="modal" id="detail-modal">
+    <div class="modal-content">
+      <span class="close-button" id="close-detail-modal">&times;</span>
+      <h2>用户详情</h2>
+      <p><strong>账号名称：</strong> <span id="detail-name"></span></p>
+      <p><strong>UserID：</strong> <span id="detail-userId"></span></p>
+      <p><strong>添加日期：</strong> <span id="detail-addDate"></span></p>
+      <p><strong>TraceID：</strong> <span id="detail-traceId"></span></p>
+    </div>
+  </div>
+
+  <!-- 添加方式选择窗口 -->
+  <div class="modal" id="add-choice-modal">
+    <div class="modal-content">
+      <span class="close-button" id="close-add-choice-modal">&times;</span>
+      <h2>选择添加方式</h2>
+      <div class="modal-actions">
+        <button id="manual-add-button">手动添加</button>
+        <button id="auto-extract-button">自动提取</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 手动添加用户窗口 -->
+  <div class="modal" id="add-modal">
+    <div class="modal-content">
+      <span class="close-button" id="close-add-modal">&times;</span>
+      <h2>手动添加用户</h2>
+      <form id="add-user-form">
+        <label for="name">账号名称：</label>
+        <input type="text" id="name" name="name" required>
+        <label for="userId">UserID：</label>
+        <input type="text" id="userId" name="userId" required>
+        <label for="traceId">TraceID：</label>
+        <input type="text" id="traceId" name="traceId" required>
+        <button type="submit">提交</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 自动提取窗口 -->
+  <div class="modal" id="auto-extract-modal">
+    <div class="modal-content">
+      <span class="close-button" id="close-auto-extract-modal">&times;</span>
+      <h2>自动提取用户</h2>
+      <p>请选择一个 XLSX 表格文件：</p>
+      <div class="modal-actions">
+        <button id="select-file-button">选择文件</button>
+      </div>
+      <p id="selected-file-name"></p>
+      <div class="modal-actions">
+        <button id="extract-button">下一步</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 扫描结果窗口 -->
+  <div class="modal" id="extract-result-modal">
+    <div class="modal-content">
+      <span class="close-button" id="close-extract-result-modal">&times;</span>
+      <h2>扫描结果</h2>
+      <p>共扫描到 <span id="user-count"></span> 个用户</p>
+      <div class="modal-actions">
+        <button id="save-extract-button">保存</button>
+        <button id="cancel-extract-button">取消</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 删除确认窗口 -->
+  <div class="modal" id="confirm-delete-modal">
+    <div class="modal-content">
+      <span class="close-button" id="close-confirm-delete-modal">&times;</span>
+      <h2>确认删除</h2>
+      <p>您确定要删除选中的用户吗？</p>
+      <div class="modal-actions">
+        <button id="confirm-delete-button">确认</button>
+        <button id="cancel-delete-button">取消</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 未选择删除项提示窗口 -->
+  <div class="modal" id="no-selection-modal">
+    <div class="modal-content">
+      <span class="close-button" id="close-no-selection-modal">&times;</span>
+      <h2>提示</h2>
+      <p>请先选择要删除的用户。</p>
+      <div class="modal-actions">
+        <button id="no-selection-ok-button">确定</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="userList.js"></script>
+</body>
+</html>

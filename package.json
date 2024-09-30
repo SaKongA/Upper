@@ -1,0 +1,52 @@
+{
+  "name": "upper",
+  "version": "1.0.2",
+  "description": "Upper 用户运营View系统",
+  "main": "main.js",
+  "scripts": {
+    "start": "chcp 65001 && electron .",
+    "build": "electron-builder"
+  },
+  "author": "SaKongApps",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^25.3.1",
+    "electron-builder": "^24.6.0"
+  },
+  "dependencies": {
+    "axios": "^1.7.7",
+    "crc-32": "^1.2.2",
+    "jsdom": "^25.0.1",
+    "nedb": "^1.8.0",
+    "xlsx": "^0.18.5"
+  },
+  "build": {
+    "appId": "com.sakongapps.upper",
+    "productName": "Upper",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "!dist",
+      "!node_modules/**/*.{o,h}",
+      "!cache"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "icon.ico",
+      "uninstallerIcon": "icon.ico",
+      "installerHeaderIcon": "icon.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Upper"
+    }
+  }
+}

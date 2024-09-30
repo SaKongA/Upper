@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>账号数据运营分析</title>
+  <link rel="stylesheet" href="dataAnalysis.css">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval';">
+</head>
+<body>
+  <div class="data-analysis-page">
+    <!-- 页面内容容器 -->
+    <div class="content-wrapper">
+      <!-- 页面标题 -->
+      <h1>账号数据运营分析</h1>
+
+      <!-- 数据列表容器 -->
+      <div class="data-list-container">
+        <!-- 表头 -->
+        <div class="data-list-header">
+          <div class="data-list-column id-column" data-sort-key="id">ID</div>
+          <div class="data-list-column name-column">用户名</div>
+          <div class="data-list-column redid-column">小红书号</div>
+          <div class="data-list-column impMedian-column" data-sort-key="impMedian">曝光中位数</div>
+          <div class="data-list-column readMedian-column" data-sort-key="readMedian">阅读中位数</div>
+          <div class="data-list-column notes-column" data-sort-key="notesNumber">日常笔记数量</div>
+          <div class="data-list-column bus-notes-column" data-sort-key="busNotesNumber">合作笔记数量</div>
+        </div>
+
+        <!-- 列表内容 -->
+        <div class="data-list-content" id="data-list-content">
+          <!-- 数据列表将由 JavaScript 动态生成 -->
+        </div>
+      </div>
+    </div>
+
+    <!-- 底部工具栏 -->
+    <div class="toolbar">
+      <div>
+        <button id="fetch-data-button">拉取用户运营数据</button>
+        <button id="filter-button">过滤</button>
+      </div>
+      <div class="last-fetch-time">上次拉取数据时间：<span id="last-fetch-time"></span></div>
+    </div>
+  </div>
+
+  <!-- 拉取数据进度窗口 -->
+  <div class="modal" id="fetch-progress-modal">
+    <div class="modal-content">
+      <h2>拉取数据中...</h2>
+      <div id="progress-bar-container">
+        <div id="progress-bar"></div>
+      </div>
+      <p>已完成 <span id="fetch-progress-percentage">0</span>%</p>
+    </div>
+  </div>
+
+  <!-- 过滤窗口 -->
+  <div class="modal" id="filter-modal">
+    <div class="modal-content">
+      <span class="close-button" id="close-filter-modal">&times;</span>
+      <h2>过滤</h2>
+      <form id="filter-form">
+        <ul class="filter-options">
+          <li>
+            <label>
+              <input type="checkbox" name="columns" value="redid-column" checked>
+              小红书号
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" name="columns" value="impMedian-column" checked>
+              曝光中位数
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" name="columns" value="readMedian-column" checked>
+              阅读中位数
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" name="columns" value="notes-column" checked>
+              日常笔记数量
+            </label>
+          </li>
+          <li>
+            <label>
+              <input type="checkbox" name="columns" value="bus-notes-column" checked>
+              合作笔记数量
+            </label>
+          </li>
+          <!-- 其他过滤选项同上 -->
+        </ul>
+        <button type="submit">应用</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 通用提示窗口 -->
+  <div class="modal" id="message-modal">
+    <div class="modal-content">
+      <h2 id="message-modal-title"></h2>
+      <p id="message-modal-content"></p>
+      <div class="modal-actions">
+        <button id="message-modal-close-button">确定</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="dataAnalysis.js"></script>
+</body>
+</html>

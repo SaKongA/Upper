@@ -1,0 +1,100 @@
+/* 全局样式 */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+  }
+  
+  .container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  /* 侧边栏样式 */
+  .sidebar {
+    width: 220px;
+    background-color: #34495e;
+    color: white;
+    padding: 15px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sidebar h2 {
+    text-align: center;
+    margin: 0 0 20px;
+    font-size: 24px;
+    color: #ecf0f1;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding-bottom: 10px;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar ul li {
+    margin: 15px 0;
+  }
+  
+  .sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px;
+    display: block;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+  }
+  
+  /* 被选中的按钮样式 */
+  .sidebar ul li a.active {
+    background-color: #1abc9c;
+    font-weight: bold;
+  }
+  
+  /* 内容样式 */
+  .content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: white;
+    border-left: 1px solid #ddd;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  /* 工具栏样式 */
+  .toolbar {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .toolbar button {
+    padding: 10px 15px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .toolbar button:hover {
+    background-color: #2980b9;
+  }
+  
+  /* 用户列表样式 */
+  .user-list {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    min-height: 300px;
+  }
+  

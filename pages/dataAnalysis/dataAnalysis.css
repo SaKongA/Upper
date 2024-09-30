@@ -1,0 +1,296 @@
+/* pages/dataAnalysis/dataAnalysis.css */
+
+/* 页面整体布局 */
+.data-analysis-page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* 内容容器 */
+.content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    overflow: auto;
+}
+
+/* 页面标题样式 */
+.data-analysis-page h1 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #2c3e50;
+    text-align: center;
+}
+
+/* 数据列表容器 */
+.data-list-container {
+    flex: 1;
+    position: relative;
+    overflow: auto;
+    /* 同时支持水平和垂直滚动 */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+/* 表头样式 */
+.data-list-header {
+    display: flex;
+    background-color: #ecf0f1;
+    padding: 10px;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+    flex-shrink: 0;
+}
+
+.data-list-content {
+    flex-grow: 1;
+}
+
+/* 调整列的对齐方式和宽度 */
+.data-list-header .data-list-column,
+.data-list-item .data-list-column {
+    flex: 1;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 调整列的宽度比例 */
+.data-list-column.id-column {
+    flex: 0.5;
+    /* 较小的宽度 */
+}
+
+.data-list-column.name-column {
+    flex: 1;
+    /* 普通宽度 */
+}
+
+.data-list-column.redid-column {
+    flex: 1;
+    /* 普通宽度 */
+}
+
+/* 其他列 */
+.data-list-column.impMedian-column,
+.data-list-column.readMedian-column,
+.data-list-column.interactionMedian-column,
+.data-list-column.likeMedian-column,
+.data-list-column.collectMedian-column,
+.data-list-column.commentMedian-column,
+.data-list-column.shareMedian-column {
+    flex: 1;
+    /* 普通宽度 */
+}
+
+/* 列表项 */
+.data-list-item {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s;
+    flex-shrink: 0;
+}
+
+.data-list-item:nth-child(even) {
+    background-color: #fafafa;
+}
+
+.data-list-item:hover {
+    background-color: #f0f0f0;
+}
+
+/* 自定义滚动条样式 */
+.data-list-container::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background-color: #f0f0f0;
+}
+
+.data-list-container::-webkit-scrollbar-thumb {
+    background-color: #bdc3c7;
+    border-radius: 4px;
+}
+
+.data-list-container::-webkit-scrollbar-thumb:hover {
+    background-color: #95a5a6;
+}
+
+/* 底部工具栏 */
+.toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    flex-shrink: 0;
+}
+
+.toolbar button {
+    padding: 10px 20px;
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+}
+
+.toolbar button:hover {
+    background-color: #27ae60;
+}
+
+.last-fetch-time {
+    font-size: 14px;
+    color: #7f8c8d;
+}
+
+/* 模态窗口样式 */
+.modal {
+    display: none;
+    opacity: 0;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s ease;
+}
+
+.modal.show {
+    display: block;
+}
+
+.modal.visible {
+    opacity: 1;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 15px 20px;
+  border: 1px solid #888;
+  max-width: 90%; /* 确保在小屏幕下不超出视口 */
+  border-radius: 5px;
+  position: relative;
+  transform: translateY(-30px);
+  transition: transform 0.3s ease;
+}
+
+.modal.visible .modal-content {
+    transform: translateY(0);
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+}
+
+/* 过滤窗口的复选框和标签样式 */
+#filter-form label {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    line-height: 1;
+    /* 确保行高一致 */
+}
+
+#filter-form input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #bdc3c7;
+    border-radius: 3px;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    background-color: white;
+    margin-right: 10px;
+    vertical-align: middle;
+    /* 垂直居中 */
+}
+
+#filter-form input[type="checkbox"]:checked {
+    background-color: #2ecc71;
+    border-color: #2ecc71;
+}
+
+#filter-form input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: translate(-50%, -60%) rotate(45deg);
+}
+
+#filter-form ul.filter-options {
+    list-style-type: none; /* 去除左侧的点 */
+  }
+
+/* 过滤窗口按钮样式 */
+#filter-form button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 15px;
+    /* 添加顶部间距 */
+}
+
+#filter-form button:hover {
+    background-color: #2980b9;
+}
+
+/* 拉取数据进度窗口 */
+#fetch-progress-modal h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#progress-bar-container {
+    width: 100%;
+    background-color: #eee;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+#progress-bar {
+    width: 0%;
+    height: 20px;
+    background-color: #3498db;
+    transition: width 0.3s ease;
+}
+
+#fetch-progress-percentage {
+    font-weight: bold;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Upper</title>
+    <link rel="stylesheet" href="home.css">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval';">
+</head>
+
+<body>
+    <div class="home-page">
+        <!-- 页面内容容器 -->
+        <div class="content-wrapper">
+            <!-- 添加图标到标题上方 -->
+            <img src="icon.ico" alt="icon" class="title-icon">
+            <!-- 页面标题 -->
+            <h1>主页</h1>
+
+            <!-- 时钟区域 -->
+            <div class="clock-container">
+                <h2 id="time"></h3>
+                <h3 id="date"></h2>
+            </div>
+        </div>
+
+        <!-- 网站快捷方式 -->
+        <div class="shortcuts-container">
+            <div id="xhs" class="shortcut">
+                <img src="pages/home/icons/xhs.ico" alt="小红书">
+                <span>小红书</span>
+              </div>
+              <div id="xhspgy" class="shortcut">
+                <img src="pages/home/icons/pgy.ico" alt="小红书蒲公英">
+                <span>小红书蒲公英</span>
+              </div>
+              <div id="google" class="shortcut">
+                <img src="pages/home/icons/google.ico" alt="Google">
+                <span>Google</span>
+              </div>
+              <div id="github" class="shortcut">
+                <img src="pages/home/icons/github.ico" alt="Github">
+                <span>Github</span>
+              </div>
+        </div>
+    </div>
+
+    <script src="home.js"></script>
+</body>
+
+</html>

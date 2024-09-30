@@ -1,0 +1,119 @@
+<!-- pages/settings/settings.html -->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>设置</title>
+  <link rel="stylesheet" href="settings.css">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval';">
+</head>
+
+<body>
+  <div class="settings-page">
+    <!-- 页面内容容器 -->
+    <div class="content-wrapper">
+      <!-- 页面标题 -->
+      <h1>设置</h1>
+
+      <!-- 设置项容器 -->
+      <div class="settings-container">
+        <!-- 自定义Cookie -->
+        <div class="setting-item">
+          <h2>自定义Cookie</h2>
+          <div class="setting-content">
+            <input type="text" id="custom-cookie" placeholder="请输入您的Cookie">
+            <button id="save-cookie-button">保存</button>
+          </div>
+        </div>
+
+        <!-- 更新应用 -->
+        <div class="setting-item">
+          <h2>更新应用</h2>
+          <div class="setting-content">
+            <div class="version-info">当前版本：<span id="current-version">1.0.2</span></div>
+            <button id="check-update-button">检查更新</button>
+          </div>
+        </div>
+
+        <!-- 保存调试Log -->
+        <div class="setting-item">
+          <h2>保存调试Log</h2>
+          <div class="setting-content">
+            <div class="log-info">点击右侧按钮保存调试Log</div>
+            <button id="save-log-button">保存</button>
+          </div>
+        </div>
+
+        <!-- 关于 -->
+        <div class="setting-item">
+          <h2>关于</h2>
+          <div class="setting-content">
+            <div class="about-info">Made By SaKongA</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 通用提示窗口 -->
+  <div class="modal" id="message-modal">
+    <div class="modal-content">
+      <h2 id="message-modal-title"></h2>
+      <p id="message-modal-content"></p>
+      <div class="modal-actions">
+        <button id="message-modal-close-button">确定</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 新版本提示窗口 -->
+  <div class="modal" id="new-version-modal">
+    <div class="modal-content">
+      <h2>发现新版本！</h2>
+      <p id="version-date"></p> <!-- 新增版本号和日期的元素 -->
+      <p>更新日志：</p>
+      <p id="update-log"></p>
+      <div class="modal-actions">
+        <button id="download-button">下载</button>
+        <button id="cancel-button">取消</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 下载进度窗口 -->
+  <div class="modal" id="download-progress-modal">
+    <div class="modal-content">
+      <h2>下载中...</h2>
+      <div id="progress-bar-container">
+        <div id="progress-bar"></div>
+      </div>
+      <p>已完成 <span id="download-progress-percentage">0</span>%</p>
+    </div>
+  </div>
+
+  <!-- 下载完成提示窗口 -->
+  <div class="modal" id="download-complete-modal">
+    <div class="modal-content">
+      <h2>下载完成！</h2>
+      <div class="modal-actions">
+        <button id="install-button">立即安装</button>
+        <button id="close-download-complete-modal">关闭</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 已是最新版本提示窗口 -->
+  <div class="modal" id="latest-version-modal">
+    <div class="modal-content">
+      <h2>已是最新版本</h2>
+      <div class="modal-actions">
+        <button id="close-latest-version-modal">确定</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="settings.js"></script>
+</body>
+
+</html>

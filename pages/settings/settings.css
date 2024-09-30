@@ -1,0 +1,267 @@
+/* pages/settings/settings.css */
+
+/* 页面整体布局 */
+.settings-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* 内容容器 */
+.content-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  overflow: auto;
+}
+
+/* 页面标题样式 */
+.settings-page h1 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: #2c3e50;
+}
+
+/* 设置项容器 */
+.settings-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* 设置项 */
+.setting-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* 设置项标题 */
+.setting-item h2 {
+  font-size: 20px;
+  color: #34495e;
+  margin: 0;
+}
+
+/* 设置项内容 */
+.setting-content {
+  display: flex;
+  align-items: center;
+}
+
+/* 自定义Cookie */
+#custom-cookie {
+  flex: 1;
+  height: 40px;
+  /* 将高度降低为单行文字高度 */
+  padding: 0 10px;
+  border: 1px solid #bdc3c7;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+#custom-cookie:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+#save-cookie-button {
+  margin-left: 10px;
+  padding: 8px 16px;
+  background-color: #2ecc71;
+  /* 绿色按钮 */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#save-cookie-button:hover {
+  background-color: #27ae60;
+}
+
+/* 更新应用 */
+.version-info {
+  font-size: 16px;
+  color: #34495e;
+}
+
+#check-update-button {
+  margin-left: auto;
+  /* 右对齐按钮 */
+  padding: 8px 16px;
+  background-color: #2ecc71;
+  /* 绿色按钮 */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#check-update-button:hover {
+  background-color: #27ae60;
+}
+
+/* 保存调试Log */
+.log-info {
+  font-size: 16px;
+  color: #34495e;
+}
+
+#save-log-button {
+  margin-left: auto;
+  /* 右对齐按钮 */
+  padding: 8px 16px;
+  background-color: #2ecc71;
+  /* 绿色按钮 */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#save-log-button:hover {
+  background-color: #27ae60;
+}
+
+/* 关于 */
+.about-info {
+  font-size: 16px;
+  color: #34495e;
+}
+
+/* 模态窗口样式 */
+/* ...（保留已有的模态窗口样式）... */
+
+/* 通用模态窗口样式 */
+.modal {
+  display: none;
+  opacity: 0;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: opacity 0.3s ease;
+}
+
+.modal.show {
+  display: block;
+}
+
+.modal.visible {
+  opacity: 1;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px 30px;
+  border: 1px solid #888;
+  width: 400px;
+  max-width: 90%;
+  border-radius: 5px;
+  position: relative;
+  transform: translateY(-30px);
+  transition: transform 0.3s ease;
+  text-align: center;
+}
+
+.modal.visible .modal-content {
+  transform: translateY(0);
+}
+
+.modal-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.modal-actions button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* 下载按钮 */
+#download-button {
+  background-color: #3498db;
+  color: white;
+}
+
+#download-button:hover {
+  background-color: #2980b9;
+}
+
+/* 取消按钮 */
+#cancel-button,
+#close-download-complete-modal,
+#close-latest-version-modal,
+#message-modal-close-button {
+  background-color: #bdc3c7;
+  color: white;
+}
+
+#cancel-button:hover,
+#close-download-complete-modal:hover,
+#close-latest-version-modal:hover,
+#message-modal-close-button:hover {
+  background-color: #95a5a6;
+}
+
+/* 安装按钮 */
+#install-button {
+  background-color: #2ecc71;
+  color: white;
+}
+
+#install-button:hover {
+  background-color: #27ae60;
+}
+
+/* 下载进度窗口 */
+#progress-bar-container {
+  width: 100%;
+  background-color: #eee;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+#progress-bar {
+  width: 0%;
+  height: 20px;
+  background-color: #3498db;
+  transition: width 0.3s ease;
+}
+
+#download-progress-percentage {
+  font-weight: bold;
+}
+
+#version-date {
+  font-size: 16px;
+  /* 调整字体大小 */
+  color: #34495e;
+  margin-bottom: 10px;
+}
+
+#update-log {
+  white-space: pre-wrap;
+  /* 保留换行符 */
+  word-wrap: break-word;
+  text-align: left;
+}
+
+/* 如果需要调整标题和版本日期之间的间距 */
+#new-version-modal h2 {
+  margin-bottom: 10px;
+}

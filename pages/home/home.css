@@ -1,0 +1,97 @@
+/* 让首页的内容容器居中对齐 */
+.home-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    background-color: white;
+    box-sizing: border-box;
+    text-align: center;
+    /* 确保所有文本居中对齐 */
+}
+
+/* 设置主页图标的样式 */
+.title-icon {
+    width: 70px;
+    /* 设置图标的宽度 */
+    height: 70px;
+    /* 设置图标的高度 */
+    display: block;
+    margin: 0 auto 10px;
+    /* 让图标居中，并与标题保持适当的距离 */
+}
+
+/* 页面标题的样式 */
+h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #34495e;
+    text-align: center;
+    /* 确保标题居中 */
+}
+
+/* 调整页面标题的间距 */
+h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #34495e;
+}
+
+/* 时钟区域保持居中 */
+.clock-container {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+#date {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #34495e;
+}
+
+#time {
+    font-size: 2em;
+    font-weight: bold;
+    color: #2980b9;
+}
+
+/* 网站快捷方式居中，并保持元素等距 */
+.shortcuts-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 800px;
+    gap: 20px;
+}
+
+.shortcut {
+    background-color: #34495e;
+    border-radius: 10px;
+    padding: 15px;
+    width: 120px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.shortcut:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.shortcut img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.shortcut span {
+    display: block;
+    color: white;
+    font-size: 1em;
+}
