@@ -1,0 +1,6 @@
+{
+    "version": "1.0.3",
+    "date": "2024.9.28-20:07",
+    "msg": "1. 完善主页显示；<br>2. 支持Cookie过期检测；<br>3. 更新日志支持多行显示；<br>4. 更新日志支持显示发布版本、日期；<br>5. 优化流畅性，修复部分BUG。",
+    "link": "https://gitee.com/ZhcnPanda/Upper/releases/download/Upper-V1.0.2/Upper%20Setup%201.0.2.exe"
+}

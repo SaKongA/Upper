@@ -82,7 +82,7 @@ ipcMain.handle('save-debug-log', async () => {
 // 检查更新
 ipcMain.handle('check-for-updates', async () => {
   try {
-    const response = await axios.get('https://aitv.rth5.com/latest.json');
+    const response = await axios.get('ex-update.json');
     return response.data;
   } catch (error) {
     console.error('检查更新失败：', error);

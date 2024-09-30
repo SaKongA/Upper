@@ -25,10 +25,42 @@
 > npm run build
 ```
 
+## 远程更新
+* 程序在`main.js`中定义了更新服务器的URL
+```js
+// 检查更新
+ipcMain.handle('check-for-updates', async () => {
+  try {
+    const response = await axios.get('https://example.com/ex-update.json');  //此处为更新配置文件链接
+    return response.data;
+  } catch (error) {
+    console.error('检查更新失败：', error);
+    return null;
+  }
+});
+```
+
+* 当前版本号定义在`pages/settings/settings.js`中，程序会比对当前版本号与服务器配置文件的版本号
+```js
+// 当前版本号
+const currentVersion = '1.0.2';
+```
+
+* 我们需要设置直接指向`json`格式的更新配置文件链接，该配置文件格式参考见源码中的`ex-update.json`
+
+* 其中，各项定义如下
+
+| 字段 | 描述 |
+| --- | ----------- |
+| version | 版本号 |
+| date | 更新日期，精确到分钟格式为`年.月.日-小时:分钟` |
+| msg | 更新日志，使用`<br>`来进行换行 |
+| link | 新版本程序下载链接，指向`exe`可执行程序 |
+
 ## 特性
 * 使用[Electron](https://github.com/electron/electron)开发，开发、构建简便快捷，UI简洁、友好；
 
-* 支持从XLSX表格中导入用户，支持通过UserID与TraceID手动导入用户；
+* 支持从XLSX表格中导入用户，支持通过`UserID`与`TraceID`手动导入用户；
 
 * 目前支持拉取小红书号、曝光中位数、阅读中位数、日常笔记数量、合作笔记数量一键拉取；
 
